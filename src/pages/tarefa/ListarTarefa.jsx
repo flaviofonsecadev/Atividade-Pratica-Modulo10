@@ -17,16 +17,17 @@ import Modal from '@mui/material/Modal';
 
 import CriarTarefa from './CriarTarefa';
 import EditarTarefa from './EditarTarefa';
+import { Add } from '@mui/icons-material';
 
 //A função abaixo é usada para criar o array contendo os dados iniciais da listagem de tarefas.
 function createData(
-  idTarefa: number,
-  tituloTarefa: string,
-  descricaoTarefa: string,
-  inicioTarefa: string,
-  fimTarefa: string,
-  statusTarefa: string,
-  recursoTarefa: string,
+  idTarefa,
+  tituloTarefa,
+  descricaoTarefa,
+  inicioTarefa,
+  fimTarefa,
+  statusTarefa,
+  recursoTarefa
 ) {
   return { idTarefa, tituloTarefa, descricaoTarefa, inicioTarefa, fimTarefa, statusTarefa, recursoTarefa };
 }
@@ -94,15 +95,15 @@ const ListarTarefa = () => {
                 <TableHead>
                 <TableRow>
                     <TableCell>#</TableCell>
-                    <TableCell>Título</TableCell>
-                    <TableCell align="right">Descrição</TableCell>
-                    <TableCell align="right">Data de Início</TableCell>
-                    <TableCell align="right">Data de Finalização</TableCell>
-                    <TableCell align="right">Status</TableCell>
-                    <TableCell align="right">Recurso</TableCell>
-                    <TableCell align="left"></TableCell>
-                    <TableCell align="left"></TableCell>
-                </TableRow>
+                    <TableCell align="center">Título</TableCell>
+                    <TableCell align="center">Descrição</TableCell>
+                    <TableCell align="center">Data de Início</TableCell>
+                    <TableCell align="center">Data de Finalização</TableCell>
+                    <TableCell align="center">Status</TableCell>
+                    <TableCell align="center">Recurso</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                </TableRow >
                 </TableHead>
                 <TableBody>
                 {tarefas.map((row, indice) => (
@@ -116,11 +117,11 @@ const ListarTarefa = () => {
                       <TableCell component="th" scope="row">
                           {row.tituloTarefa}
                       </TableCell>
-                      <TableCell align="right">{row.descricaoTarefa}</TableCell>
-                      <TableCell align="right">{row.inicioTarefa}</TableCell>
-                      <TableCell align="right">{row.fimTarefa}</TableCell>
-                      <TableCell align="right">{row.statusTarefa}</TableCell>
-                      <TableCell align="right">{row.recursoTarefa}</TableCell>
+                      <TableCell align="center">{row.descricaoTarefa}</TableCell>
+                      <TableCell align="center">{row.inicioTarefa}</TableCell>
+                      <TableCell align="center">{row.fimTarefa}</TableCell>
+                      <TableCell align="center">{row.statusTarefa}</TableCell>
+                      <TableCell align="center">{row.recursoTarefa}</TableCell>
                       <TableCell align="center">
                         <Button variant="contained" color="success" onClick={() => handleEditar(row.idTarefa)}><EditIcon fontSize="small" /></Button>            
                       </TableCell>
@@ -134,8 +135,8 @@ const ListarTarefa = () => {
             </TableContainer>
         </CardContent>
         <CardActions>
-            <Button size="small" variant="contained" onClick={handleOpen}>Criar Tarefa</Button>
-            <Button size="small" variant="outlined">Cancelar</Button>
+            <Button size="small" variant="contained" onClick={handleOpen}><Add fontSize="small" />Criar Tarefa</Button>
+            
       </CardActions> 
     </Card>
     <div>
